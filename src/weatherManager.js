@@ -37,7 +37,7 @@ const weatherManager = () => {
           day3 = x.main.temp;
         }
       });
-      const location = Weather(cityName, res.list[0].main.temp, res.list[0].weather[0].description,
+      const location = Weather(cityName, res.list[0].main.temp, res.list[0].weather[0].main,
         res.list[0].main.humidity, day1, day2, day3);
       return location;
     })
@@ -60,7 +60,7 @@ const weatherManager = () => {
         }
         return day1;
       });
-      const location = Weather(cityName, res.list[0].main.temp, res.list[0].weather[0].description,
+      const location = Weather(cityName, res.list[0].main.temp, res.list[0].weather[0].main,
         res.list[0].main.humidity, day1, day2, day3);
       return location;
     })

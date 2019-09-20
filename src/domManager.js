@@ -12,6 +12,7 @@ const domManager = (data) => {
   const day3name = document.getElementById('day3name');
   const day3temp = document.getElementById('day3temp');
   const selector = document.getElementById('selector');
+  const infoContainer = document.getElementById('infoContainer');
 
 
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -37,6 +38,13 @@ const domManager = (data) => {
 
   const renderMetric = (response) => {
     locationName.innerText = response.cityName.toUpperCase();
+    if (response.description === 'Rain') {
+      infoContainer.classList = 'rain';
+    } else if (response.description === 'Clear') {
+      infoContainer.classList = 'clear';
+    } else {
+      infoContainer.classList = 'clouds';
+    }
     temperature.innerText = `${response.temperature}C°`;
     description.innerText = response.description;
     day1name.innerText = dateFormatter(1).day;
@@ -58,6 +66,27 @@ const domManager = (data) => {
     day3name.innerText = dateFormatter(3).day;
     day3temp.innerText = `${response.day3}F`;
   };
+
+  selector.addEventListener('change', (event) => {
+    const value = locationName.innerText;
+    if (!event.target.checked) {
+      data.locationWeatherMetric(value).then((response) => {
+        if (response === 'error') {
+          errMsg.style.display = 'flex';
+        } else {
+          renderMetric(response);
+        }
+      });
+    } else {
+      data.locationWeatherImperial(value).then((response) => {
+        if (response === 'error') {
+          errMsg.style.display = 'flex';
+        } else {
+          renderImperial(response);
+        }
+      });
+    }
+  });
 
   input.addEventListener('keypress', (e) => {
     const key = e.which || e.keyCode;

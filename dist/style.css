@@ -16,24 +16,62 @@ body {
   border-radius: 20px;
 }
 
-.info {
+.rain {
   height: 50%;
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background:
-    /* top, transparent red, faked with gradient */
+    linear-gradient(rgba(14, 9, 9, 0.2), rgba(12, 10, 10, 0.2)), url('https://wallpaperplay.com/walls/full/b/b/f/69815.jpg');
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+
+}
+
+.clear {
+  height: 50%;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background:
     linear-gradient(rgba(14, 9, 9, 0.2), rgba(12, 10, 10, 0.2)), url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg');
-  /* bottom, image */
+
   background-size: cover;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
 }
 
-.info:hover {
+.clouds {
+  height: 50%;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background:
+    linear-gradient(rgba(14, 9, 9, 0.2), rgba(12, 10, 10, 0.2)), url('https://i.ytimg.com/vi/o6wMCkY7kjA/maxresdefault.jpg');
+
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.clouds:hover {
+  transform: scale(1.02);
+}
+
+.rain:hover {
   transform: scale(1.02)
 }
+
+.clear:hover {
+  transform: scale(1.02)
+}
+
+
 
 .time {
   grid-column: 1 / span 2;
